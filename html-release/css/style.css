@@ -1,0 +1,688 @@
+@charset "utf-8";
+
+/*********** 公共样式 *************/
+
+* {
+    padding                    : 0;
+    margin                     : 0;
+    outline                    : none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-family: 'LXGW WenKai', PingFangSC-Light, Microsoft YaHei UI, Microsoft YaHei, helvetica, sans-serif;
+    font-weight: 600;
+    color      : #fff;
+}
+
+html,
+body {
+    width   : 100%;
+    height  : 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+form,
+input,
+button {
+    padding   : 0;
+    margin    : 0;
+    border    : none;
+    outline   : none;
+    background: none;
+}
+
+input::-webkit-input-placeholder {
+    color         : #ccc;
+    letter-spacing: 2px;
+    font-size     : 16px;
+}
+
+ul,
+li {
+    display   : block;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color          : #000;
+}
+
+/*********** 菜单按钮 *************/
+
+#menu {
+    width        : 50px;
+    height       : 50px;
+    transform    : scale(0.8);
+    position     : absolute;
+    right        : 10px;
+    top          : 5px;
+    z-index      : 2000000;
+    cursor       : pointer;
+    transition   : 0.4s all linear;
+    border-radius: 25px;
+}
+
+#menu i {
+    position     : absolute;
+    left         : 0;
+    right        : 0;
+    margin       : 24px auto;
+    width        : 25px;
+    height       : 3px;
+    background   : #ddd;
+    border-radius: 25px;
+}
+
+#menu i:before {
+    content      : '';
+    width        : 15px;
+    height       : 3px;
+    top          : -8px;
+    background   : #ddd;
+    position     : absolute;
+    right        : 0;
+    border-radius: 25px;
+}
+
+#menu i:after {
+    content      : '';
+    width        : 13px;
+    height       : 3px;
+    bottom       : -8px;
+    background   : #ddd;
+    position     : absolute;
+    left         : 0;
+    border-radius: 25px;
+}
+
+#menu.on {
+    right        : 380px;
+    background   : rgba(1, 1, 1, 0.5);
+    border-radius: 25px;
+}
+
+#menu.on i {
+    width     : 20px;
+    background: #fff;
+}
+
+#menu.on i:before {
+    top       : -5px;
+    transform : rotate(45deg);
+    width     : 14px;
+    right     : -1px;
+    left      : auto;
+    background: #fff;
+}
+
+#menu.on i:after {
+    bottom    : -5px;
+    transform : rotate(-45deg);
+    width     : 14px;
+    right     : -1px;
+    left      : auto;
+    background: #fff;
+}
+
+/*************** 右侧菜单内容体 ************/
+
+.menu-body {
+    width     : 337px;
+    height    : 100%;
+    padding   : 0 20px;
+    position  : absolute;
+    right     : 0px;
+    z-index   : 2000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: rgba(1, 1, 1, .7);
+    transition: 0.4s all linear;
+}
+
+.menu-body.closed {
+    right: -380px;
+}
+
+/* 菜单内容体-个性化导航栏 */
+.menu-body::-webkit-scrollbar-thumb {
+    background-color: #f6f6f6;
+    border-radius   : 2px;
+}
+
+.menu-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background        : #22334b;
+}
+
+.menu-body::-webkit-scrollbar {
+    width : 5px;
+    height: 1px;
+}
+
+.menu-body header,
+.menu-body section {
+    width : 330px;
+    margin: 20px 0;
+}
+
+/* 菜单内容体顶部-导航 */
+.menu-body .menu-nav .menu-nav-list {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    flex-direction : row;
+    flex-wrap      : wrap;
+}
+
+.menu-body .menu-nav .menu-nav-list li::after {
+    content: '|';
+}
+
+.menu-body .menu-nav .menu-nav-list li:nth-last-child(1)::after {
+    content: '';
+}
+
+.menu-body .menu-nav .menu-nav-list a {
+    padding  : 1px 4px;
+    font-size: 13px;
+}
+
+/* 菜单内容体-内容 */
+.menu-body>section header.title {
+    width      : 100%;
+    height     : 40px;
+    line-height: 40px;
+    margin     : 30px 0 0;
+    text-align : left;
+    text-indent: 10px;
+    color      : #fff;
+    font-size  : 18px;
+    font-weight: bold;
+}
+
+.menu-body>section header.title i {
+    color       : #29f;
+    margin-right: 5px;
+    font-weight : normal;
+}
+
+.menu-body>section>ul {
+    display  : flex;
+    flex-wrap: wrap;
+}
+
+.menu-body>section>ul>li {
+    margin     : 5px;
+    width      : 100px;
+    height     : 30px;
+    text-align : left;
+    line-height: 30px;
+}
+
+.menu-body>section>ul>li>a {
+    width        : 100%;
+    border-radius: 5px;
+    transition   : 0.2s all linear;
+    height       : 100%;
+    display      : block;
+    color        : #fff;
+    font-weight  : 500;
+    background   : rgba(0, 0, 0, .3);
+    text-align   : left;
+    font-size    : 12px;
+}
+
+.menu-body>section>ul>li>a i {
+    margin-right: 5px;
+    margin-left : 15px;
+    transition  : 0.2s all linear;
+}
+
+.menu-body>section>ul>li>a i.iconfont {
+    font-size: 14px;
+}
+
+.menu-body>section>ul>li:hover a {
+    color           : #fff;
+    background-color: #29f;
+    background-image: linear-gradient(135deg, rgba(35, 153, 255) 0%, rgba(84, 175, 253) 100%);
+    box-shadow      : 0 3px 3px rgba(0, 40, 70, .3);
+}
+
+.menu-body>section>ul>li:hover a i {
+    color: #fff !important;
+}
+
+/*************** 搜索栏样式 ************/
+
+#search {
+    width    : 717px;
+    margin   : 56px auto 14px;
+    position : absolute;
+    z-index  : 99;
+    top      : 40%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+}
+
+#search form {
+    position: relative
+}
+
+#search-text,
+#kos {
+    color           : white;
+    width           : 100%;
+    height          : 50px;
+    font-size       : 1pc;
+    border          : 0;
+    border-radius   : 9px;
+    background-color: rgba(240, 240, 240, 0.3);
+    text-indent     : 50px;
+}
+
+#search button {
+    position     : absolute;
+    top          : 0px;
+    left         : 0;
+    background   : none;
+    border       : 0;
+    width        : 30px;
+    height       : 36px;
+    margin       : 7px 9pt 0;
+    line-height  : 36px;
+    border-radius: 3px;
+    cursor       : pointer;
+}
+
+#search label:hover {
+    background: rgba(240, 240, 240, 0.3);
+    cursor    : pointer
+}
+
+#search button i {
+    color    : #fff;
+    font-size: 18px
+}
+
+.search-group {
+    display     : none;
+    padding-left: 75px
+}
+
+.s-current .search-type {
+    padding-left: 0;
+    display     : block
+}
+
+.s-current {
+    display: block
+}
+
+#search-list,
+#yy {
+    position: relative
+}
+
+.s-type {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    z-index : 13;
+    width   : 75px
+}
+
+.s-type:hover {
+    height: auto
+}
+
+.s-type>span {
+    display: block;
+    height : 31px;
+    width  : 75px
+}
+
+.s-type-list {
+    display      : none;
+    position     : absolute;
+    top          : 31px;
+    width        : 70px;
+    background   : rgba(0, 0, 0, 0.9);
+    border-radius: 6px;
+    box-shadow   : 0 0 6px rgba(0, 0, 0, .16);
+    padding      : 9pt 0;
+}
+
+.s-type-list:before {
+    position           : absolute;
+    top                : -1pc;
+    left               : 10px;
+    content            : ' ';
+    display            : block;
+    width              : 0;
+    height             : 0;
+    border             : 10px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.9);
+}
+
+.s-type-list label {
+    display   : block;
+    font-size : 15px;
+    text-align: center;
+    padding   : 2px 0;
+}
+
+.s-type-list .tile-lg {
+    color        : #fff;
+    width        : 3pc;
+    height       : 3pc;
+    font-size    : 1.25rem;
+    line-height  : 3rem;
+    border-radius: .3rem;
+    display      : block;
+    margin       : auto
+}
+
+.s-type-list label:hover {
+    color: #fff
+}
+
+.s-type:hover .s-type-list {
+    display    : block;
+    padding-top: 8px
+}
+
+.type-text {
+    position    : absolute;
+    left        : 0;
+    width       : 75px;
+    padding-left: 9pt;
+    font-size   : 1pc;
+    line-height : 31px
+}
+
+.type-text:after {
+    content    : "\e6aa";
+    font-family: iconfont;
+    margin     : 0 0 0 10px
+}
+
+.search-type {
+    white-space: nowrap;
+    margin     : 0
+}
+
+.search-type label {
+    margin: 0
+}
+
+.search-type li {
+    display: inline-block
+}
+
+.search-type li label {
+    display      : inline-block;
+    padding      : 0 11px;
+    font-size    : 14px;
+    line-height  : 31px;
+    border-radius: 3px 3px 0 0;
+    cursor       : pointer
+}
+
+.search-type input:checked+label,
+.search-type input:hover+label {
+    background-color: rgba(240, 240, 240, 0.3);
+}
+
+.set-check {
+    margin-top: 3px;
+    font-size : 9pt
+}
+
+.set-check label {
+    margin-left: 3px
+}
+
+.set-check input,
+.set-check label {
+    opacity   : 0;
+    transition: all .3s ease
+}
+
+.search-type li {
+    list-style: none;
+    display   : inline-block
+}
+
+.search-type li input[name="type"] {
+    display: none;
+}
+
+/**************** 底部样式 *********************/
+
+footer#footer {
+    position   : absolute;
+    bottom     : 40px;
+    width      : 100%;
+    text-align : center;
+    font-family: LXGW WenKai;
+    font-size  : 14px;
+    font-weight: 600;
+}
+
+p#hitokoto_text {
+    width: auto;
+    display: none;
+}
+
+p#hitokoto_text::before {
+    content: '『';
+    padding: 0 6px;
+}
+
+p#hitokoto_text::after {
+    content: '』';
+    padding: 0 6px;
+}
+
+p#copyright {
+    margin-top: 13px;
+}
+
+
+@media screen and (max-width:767px) {
+    .search-list {
+        height     : 30px;
+        overflow-y : hidden;
+        overflow-x : scroll;
+        white-space: nowrap
+    }
+}
+
+@media screen and (max-width:768px) {
+    #search {
+        width: 90%;
+    }
+
+    .search-type {
+        overflow: auto;
+    }
+
+    .search-list {
+        height     : 30px;
+        overflow-y : hidden;
+        overflow-x : scroll;
+        white-space: nowrap;
+    }
+}
+
+.fa-2x {
+    padding-top: 15px;
+    font-size  : 1.5em;
+}
+
+.wei {
+    list-style : none;
+    position   : relative;
+    text-indent: 10px;
+    cursor     : pointer;
+}
+
+.wei:hover {
+    background: rgba(240, 240, 240, 0.3);
+}
+
+.a {
+    display      : inline-block;
+    width        : 90%;
+    color        : #fff;
+    height       : 27px;
+    line-height  : 30px;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+}
+
+.ko {
+    display : none;
+    top     : 10px;
+    position: relative;
+}
+
+#kol {
+    display : none;
+    top     : 10px;
+    position: relative;
+    height  : 300px;
+    overflow: auto;
+    width   : 98%;
+}
+
+@media (max-width: 640px) {
+    #kol {
+        height    : 158px;
+        overflow-y: auto;
+    }
+}
+
+/* end */
+
+@media (max-width: 640px) {
+    .con {
+        top: 0px;
+    }
+
+    .con .shlogo {
+        width : 320px;
+        height: 100px;
+    }
+
+    .con .sou form .wd:focus {
+        background  : #f1f1f1;
+        box-shadow  : none;
+        border-color: #ccc
+    }
+
+    .con .sou form button {
+        border-radius: 25px;
+    }
+
+    .con .sou #word {
+        max-height: 150px;
+    }
+
+    #menu.on {
+        right: 270px;
+    }
+
+    .list {
+        width: 227px;
+    }
+
+    .list ul {
+        width: 220px;
+    }
+
+    .con .sou ul li {
+        width      : 100px;
+        font-size  : 12px;
+        text-indent: 30px;
+    }
+
+    .home,
+    #menu {
+        top: 5px;
+    }
+}
+
+@media (max-height: 420px) {
+    .con {
+        margin: 0;
+        top   : 0px;
+    }
+
+    .con .shlogo {
+        display: none;
+    }
+
+    .home,
+    #menu,
+    .mywth,
+    .foot {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #162035;
+    }
+
+    .mywth {
+        color: #bbb;
+    }
+
+    .con .sou form .wd:focus {
+        background: #293550;
+        border    : 1px solid #162035;
+    }
+
+    .con .sou form .wd {
+        border: 1px solid #293550;
+        color : #bbb;
+    }
+
+    .con .sou #word {
+        border    : 15px solid #293550;
+        background: #293550;
+    }
+
+    .con .sou #word .click_work {
+        color: #89b;
+    }
+}
+
+::-webkit-scrollbar {
+    width : 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background   : #222d46;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background   : #293550;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #293550;
+}
+
+::-webkit-scrollbar-corner {
+    background: #222d46;
+}
