@@ -22,15 +22,15 @@ PHP版本的代码添加了简单的后台管理功能，包括：
 
 ## 截图示例
 
-![](https://图床.红红.我爱你/2023/08/07/64d0f003a1db6.png)
+![首页](https://xn--wcso9o.xn--um0aa.xn--6qq986b3xl/2023/08/07/64d0f003a1db6.png)
 
-![](https://图床.红红.我爱你/2023/08/07/64d0f003e23eb.png)
+![](https://xn--wcso9o.xn--um0aa.xn--6qq986b3xl/2023/08/07/64d0f003e23eb.png)
 
-![](https://图床.红红.我爱你/2023/08/07/64d0f0057849d.png)
+![](https://xn--wcso9o.xn--um0aa.xn--6qq986b3xl/2023/08/07/64d0f0057849d.png)
 
-![](https://图床.红红.我爱你/2023/08/07/64d0f0057945e.png)
+![](https://xn--wcso9o.xn--um0aa.xn--6qq986b3xl/2023/08/07/64d0f0057945e.png)
 
-![](https://图床.红红.我爱你/2023/08/07/64d0f0061f6d3.png)
+![](https://xn--wcso9o.xn--um0aa.xn--6qq986b3xl/2023/08/07/64d0f0061f6d3.png)
 
 ## 安装php-release
 
