@@ -28,9 +28,11 @@
                     <td><?php echo $menuInfo->name ?></td>
                     <td><a href="<?php echo $menuInfo->link ?>" target="_blank" rel="noopener noreferrer"><?php echo $menuInfo->link ?></a></td>
                     <td>
-                        <?php if (preg_match('/^icon-/', $menuInfo->icon) == 1) { ?><i class="iconfont <?php echo $menuInfo->icon ?> mr-2" style="color: <?php echo $menuInfo->color ?>"></i><?php } ?>
-                        <?php if (preg_match('/^fa-/', $menuInfo->icon) == 1) { ?><i class="<?php echo $menuInfo->icon ?> mr-2" style="color: <?php echo $menuInfo->color ?>"></i><?php } ?>
-                        <?php if (preg_match('/^http/', $menuInfo->icon) == 1) { ?><i class="online-icon mr-2" style="background-image: url('<?php echo $menuInfo->icon ?>');"></i><?php } ?>
+                        <?php if (!empty($menuInfo->icon)) { ?>
+                            <?php if (preg_match('/^icon-/', $menuInfo->icon) == 1) { ?><i class="iconfont <?php echo $menuInfo->icon ?> mr-2" style="color: <?php echo $menuInfo->color ?>"></i><?php } ?>
+                            <?php if (preg_match('/^fa-/', $menuInfo->icon) == 1) { ?><i class="<?php echo $menuInfo->icon ?> mr-2" style="color: <?php echo $menuInfo->color ?>"></i><?php } ?>
+                            <?php if (preg_match('/^http/', $menuInfo->icon) == 1) { ?><i class="online-icon mr-2" style="background-image: url('<?php echo $menuInfo->icon ?>');"></i><?php } ?>
+                        <?php } ?>
                         <?php echo $menuInfo->icon ?>
                     </td>
                     <td>

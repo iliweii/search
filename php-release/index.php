@@ -97,9 +97,11 @@ $db = db();
 
                   <section>
                         <header class="title" id="<?php echo $menuInfo->title ?>">
-                              <?php if (preg_match('/^icon-/', $menuInfo->icon) == 1) { ?><i class="iconfont <?php echo $menuInfo->icon ?>"></i><?php } ?>
-                              <?php if (preg_match('/^fa-/', $menuInfo->icon) == 1) { ?><i class="<?php echo $menuInfo->icon ?>"></i><?php } ?>
-                              <?php if (preg_match('/^http/', $menuInfo->icon) == 1) { ?><i class="online-icon" style="background-image: url('<?php echo $menuInfo->icon ?>');"></i><?php } ?>
+                              <?php if (!empty($menuInfo->icon)) { ?>
+                                    <?php if (preg_match('/^icon-/', $menuInfo->icon) == 1) { ?><i class="iconfont <?php echo $menuInfo->icon ?>"></i><?php } ?>
+                                    <?php if (preg_match('/^fa-/', $menuInfo->icon) == 1) { ?><i class="<?php echo $menuInfo->icon ?>"></i><?php } ?>
+                                    <?php if (preg_match('/^http/', $menuInfo->icon) == 1) { ?><i class="online-icon" style="background-image: url('<?php echo $menuInfo->icon ?>');"></i><?php } ?>
+                              <?php } ?>
                               <?php echo $menuInfo->title ?>
                         </header>
                         <ul>
@@ -110,9 +112,11 @@ $db = db();
                               ?>
                                     <li>
                                           <a rel="nofollow" href="<?php echo $menu->link ?>" target="_blank">
-                                                <?php if (preg_match('/^icon-/', $menu->icon) == 1) { ?><i class="iconfont <?php echo $menu->icon ?>" style="color: <?php echo $menu->color ?>;"></i><?php } ?>
-                                                <?php if (preg_match('/^fa-/', $menu->icon) == 1) { ?><i class="<?php echo $menu->icon ?>" style="color: <?php echo $menu->color ?>;"></i><?php } ?>
-                                                <?php if (preg_match('/^http/', $menu->icon) == 1) { ?><i class="online-icon" style="background-image: url('<?php echo $menu->icon ?>');"></i><?php } ?>
+                                                <?php if (!empty($menuInfo->icon)) { ?>
+                                                      <?php if (preg_match('/^icon-/', $menu->icon) == 1) { ?><i class="iconfont <?php echo $menu->icon ?>" style="color: <?php echo $menu->color ?>;"></i><?php } ?>
+                                                      <?php if (preg_match('/^fa-/', $menu->icon) == 1) { ?><i class="<?php echo $menu->icon ?>" style="color: <?php echo $menu->color ?>;"></i><?php } ?>
+                                                      <?php if (preg_match('/^http/', $menu->icon) == 1) { ?><i class="online-icon" style="background-image: url('<?php echo $menu->icon ?>');"></i><?php } ?>
+                                                <?php } ?>
                                                 <?php echo $menu->name ?>
                                           </a>
                                     </li>

@@ -24,9 +24,11 @@
                     <td><?php echo $i + 1 ?></td>
                     <td style="color: <?php echo $menuInfo->color ?>;<?php if (in_array($menuInfo->color, array('#FFF', '#FFFFFF', '#fff', '#ffffff'))) echo "text-shadow:0 0 4px black;" ?>"><?php echo $menuInfo->title ?></td>
                     <td>
-                        <?php if (preg_match('/^icon-/', $menuInfo->icon) == 1) { ?><i class="iconfont <?php echo $menuInfo->icon ?> mr-2"></i><?php } ?>
-                        <?php if (preg_match('/^fa-/', $menuInfo->icon) == 1) { ?><i class="<?php echo $menuInfo->icon ?> mr-2"></i><?php } ?>
-                        <?php if (preg_match('/^http/', $menuInfo->icon) == 1) { ?><i class="online-icon mr-2" style="background-image: url('<?php echo $menuInfo->icon ?>');"></i><?php } ?>
+                        <?php if (!empty($menuInfo->icon)) { ?>
+                            <?php if (preg_match('/^icon-/', $menuInfo->icon) == 1) { ?><i class="iconfont <?php echo $menuInfo->icon ?> mr-2"></i><?php } ?>
+                            <?php if (preg_match('/^fa-/', $menuInfo->icon) == 1) { ?><i class="<?php echo $menuInfo->icon ?> mr-2"></i><?php } ?>
+                            <?php if (preg_match('/^http/', $menuInfo->icon) == 1) { ?><i class="online-icon mr-2" style="background-image: url('<?php echo $menuInfo->icon ?>');"></i><?php } ?>
+                        <?php } ?>
                         <?php echo $menuInfo->icon ?></td>
                     <td>
                         <span style="padding: 6px;display: inline-block;border: solid 1px;background: <?php echo $menuInfo->color ?>"></span>
